@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float vie;
-    public float vitesse;
-    public int degats;
+     public float _vie;
+     protected float _vitesse;
+     protected int _degats;
 
     public virtual void SeDeplacer(Vector3 destination)
     {
-        transform.position = Vector3.MoveTowards(transform.position, destination, vitesse * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, destination, _vitesse * Time.deltaTime);
     }
 
     public void SubirDegats(float degatsRecus)
     {
-        vie -= degatsRecus;
-        if (vie <= 0)
+        _vie -= degatsRecus;
+        if (_vie <= 0)
         {
             Mourir();
         }

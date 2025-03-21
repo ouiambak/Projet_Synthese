@@ -6,8 +6,8 @@ public class EnemyFast : Enemy
 {
     private void Start()
     {
-        vie = 50;
-        vitesse = 5f;
-        degats = 10;
+        _vie = 50;
+        _vitesse = 5f;
+        _degats = 10;
     }
 }

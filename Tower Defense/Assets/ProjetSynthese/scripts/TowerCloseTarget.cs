@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class TowerCloseTarget : Tower
 {
-    public override void DetecterEnnemis(List<Enemy> ennemis)
+    protected override void TrouverCible()
     {
-        Enemy cible = null;
+        if (cible != null && Vector3.Distance(transform.position, cible.transform.position) <= _portee)
+        {
+            return; // Garde la cible tant qu'elle est dans la portée
+        }
+
+        Enemy[] ennemis = FindObjectsOfType<Enemy>();
         float distanceMin = Mathf.Infinity;
+        Enemy ennemiLePlusProche = null;
 
         foreach (Enemy ennemi in ennemis)
         {
             float distance = Vector3.Distance(transform.position, ennemi.transform.position);
-            if (distance < distanceMin)
+            if (distance < distanceMin && distance <= _portee)
             {
                 distanceMin = distance;
-                cible = ennemi;
+                ennemiLePlusProche = ennemi;
             }
         }
-        if (cible != null)
-        {
-            TirerProjectile(cible);
-        }
+        cible = ennemiLePlusProche;
     }
 }

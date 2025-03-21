@@ -6,8 +6,8 @@ public class EnemyTank : Enemy
 {
     private void Start()
     {
-        vie = 150;
-        vitesse = 2f;
-        degats = 20;
+        _vie = 150;
+        _vitesse = 2f;
+        _degats = 20;
     }
 }

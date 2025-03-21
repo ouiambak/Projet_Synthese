@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class TowerStrongestTarget : Tower
 {
-    public override void DetecterEnnemis(List<Enemy> ennemis)
+    protected override void TrouverCible()
     {
-        Enemy cible = null;
-        float maxVie = 0;
+        Enemy[] ennemis = FindObjectsOfType<Enemy>();
+        Enemy ennemiLePlusFort = null;
+        float vieMax = 0f;
 
         foreach (Enemy ennemi in ennemis)
         {
-            if (ennemi.vie > maxVie)
+            float distance = Vector3.Distance(transform.position, ennemi.transform.position);
+            if (distance <= _portee && ennemi.vie > vieMax)
             {
-                maxVie = ennemi.vie;
-                cible = ennemi;
+                vieMax = ennemi.vie;
+                ennemiLePlusFort = ennemi;
             }
         }
-        if (cible != null)
-        {
-            TirerProjectile(cible);
-        }
+        cible = ennemiLePlusFort;
     }
 }
