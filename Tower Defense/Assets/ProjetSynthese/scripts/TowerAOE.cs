@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class TowerAOE : Tower
 {
+    
     protected override void Tirer()
     {
+        
         Enemy[] ennemis = FindObjectsOfType<Enemy>();
+
         foreach (Enemy ennemi in ennemis)
         {
+            
             if (Vector3.Distance(transform.position, ennemi.transform.position) <= _portee)
             {
+                
                 GameObject projectileGO = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
                 Projectile projectile = projectileGO.GetComponent<Projectile>();
-                projectile.Initialiser(ennemi);
+                float nouveauxDegats = 10f; 
+                projectile.Initialiser(ennemi, nouveauxDegats);
             }
         }
     }

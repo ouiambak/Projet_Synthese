@@ -14,9 +14,9 @@ public class TowerStrongestTarget : Tower
         foreach (Enemy ennemi in ennemis)
         {
             float distance = Vector3.Distance(transform.position, ennemi.transform.position);
-            if (distance <= _portee && ennemi.vie > vieMax)
+            if (distance <= _portee && ennemi._vie > vieMax)
             {
-                vieMax = ennemi.vie;
+                vieMax = ennemi._vie;
                 ennemiLePlusFort = ennemi;
             }
         }

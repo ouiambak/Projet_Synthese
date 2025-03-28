@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public float _portee = 5f; // Portée d'attaque
-    public float _cadenceDeTir = 1f; // Temps entre chaque tir
-    public GameObject _projectilePrefab; // Prefab du projectile
+    public float _portee = 5f; 
+    public float _cadenceDeTir = 1f; 
+    public GameObject _projectilePrefab; 
+    public float _degats = 10f; 
     private float _tempsAvantProchainTir = 0f;
 
-    protected Enemy cible; // Cible actuelle
+    protected Enemy cible;
 
     void Update()
     {
@@ -19,7 +20,7 @@ public class Tower : MonoBehaviour
         }
         _tempsAvantProchainTir -= Time.deltaTime;
 
-        // Rotation vers la cible
+     
         if (cible != null)
         {
             Vector3 direction = cible.transform.position - transform.position;
@@ -49,8 +50,9 @@ public class Tower : MonoBehaviour
     protected virtual void Tirer()
     {
         if (cible == null) return;
+
         GameObject projectileGO = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
-        projectile.Initialiser(cible);
+        projectile.Initialiser(cible, _degats); 
     }
 }
