@@ -2537,7 +2537,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 49ca538ce209a82448b832a3d0c09ba3, type: 3}
       propertyPath: m_Name
-      value: FX_Ring_Mesh
+      value: 'Target '
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 49ca538ce209a82448b832a3d0c09ba3, type: 3}
       propertyPath: m_RootOrder
