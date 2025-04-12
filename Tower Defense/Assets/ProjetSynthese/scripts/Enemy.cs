@@ -13,21 +13,24 @@ public class Enemy : MonoBehaviour
     public Transform target;  
 
     void Start()
+{
+    _navMeshAgent = GetComponent<NavMeshAgent>();
+
+    if (_navMeshAgent != null)
     {
-        
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-
-        
-        if (_navMeshAgent != null)
-        {
-            _vitesseOriginale = _navMeshAgent.speed;
-        }
-
-        if (target != null)
-        {
-            SeDeplacerVersTarget(target.position);  
-        }
+        _vitesseOriginale = _navMeshAgent.speed;
     }
+
+    if (target == null)
+    {
+        target = GameObject.FindWithTag("Target")?.transform;
+    }
+
+    if (target != null)
+    {
+        SeDeplacerVersTarget(target.position);
+    }
+}
 
     public virtual void SeDeplacer(Vector3 destination)
     {
@@ -98,6 +101,6 @@ public class Enemy : MonoBehaviour
 
     public void SubirDegatsSurTemps(float degatsParSeconde, float duree)
     {
-        // Implémentez la logique pour appliquer des dégâts sur une période donnée
+        // Implï¿½mentez la logique pour appliquer des dï¿½gï¿½ts sur une pï¿½riode donnï¿½e
     }
 }
