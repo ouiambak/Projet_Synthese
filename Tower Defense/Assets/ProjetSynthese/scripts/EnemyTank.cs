@@ -9,5 +9,6 @@ public class EnemyTank : Enemy
         _vie = 150;
         _vitesse = 2f;
         _degats = 20;
+        base.Start();
     }
 }

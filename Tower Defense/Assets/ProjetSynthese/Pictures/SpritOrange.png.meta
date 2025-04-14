@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpritOrange_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 384
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec5d09b5ab4c4c4885e0f8e7f5c1608
+      internalID: -509071619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritOrange_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 384
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf19fbf0838084343827a4dc5d458863
+      internalID: -1496163667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritOrange_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 384
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb22865b7774d64aa26400bdaf38644
+      internalID: -2096759362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritOrange_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 192
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b104b9e90bf604188564b3fa83310d
+      internalID: 1297927635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritOrange_4
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 192
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9a936d226647141801a59c5e936404
+      internalID: 989316558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritOrange_5
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 192
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e787756ca6e1f34c9d1e008be8bd4c9
+      internalID: 519889567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritOrange_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3917f75d8aca13f40b099f8c9123aa90
+      internalID: -914415330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritOrange_7
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb81b59d8bb0664487198939ced1abf
+      internalID: 482902108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritOrange_8
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 106.666664
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c176996ea30fe2429c6a06c88ae60cf
+      internalID: 1966256502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +303,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpritOrange_0: -509071619
+      SpritOrange_1: -1496163667
+      SpritOrange_2: -2096759362
+      SpritOrange_3: 1297927635
+      SpritOrange_4: 989316558
+      SpritOrange_5: 519889567
+      SpritOrange_6: -914415330
+      SpritOrange_7: 482902108
+      SpritOrange_8: 1966256502
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

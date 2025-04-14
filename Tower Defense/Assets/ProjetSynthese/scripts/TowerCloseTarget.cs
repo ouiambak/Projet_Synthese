@@ -8,7 +8,7 @@ public class TowerCloseTarget : Tower
     {
         if (cible != null && Vector3.Distance(transform.position, cible.transform.position) <= _portee)
         {
-            return; // Garde la cible tant qu'elle est dans la portée
+            return; 
         }
 
         Enemy[] ennemis = FindObjectsOfType<Enemy>();

@@ -9,5 +9,7 @@ public class EnemyFast : Enemy
         _vie = 50;
         _vitesse = 5f;
         _degats = 10;
+        base.Start();
+
     }
 }

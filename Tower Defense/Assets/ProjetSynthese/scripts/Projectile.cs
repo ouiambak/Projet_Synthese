@@ -2,96 +2,52 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [Header("Caractéristiques du projectile")]
-    public float _degats = 10f;      // Dégâts infligés
-    public float _vitesse = 5f;      // Vitesse de déplacement
-    public string _effetSpecial = ""; // Effet spécial (ex: ralentissement, explosion)
+    private Enemy _cible;
+    private float _degats;
+    public bool isAOE = false;
+    public float radius = 2f;
+    public bool slowEffect = false;
 
-    private Enemy _cible; // Cible du projectile
-
-    /// Initialise le projectile avec une _cible et ses dégâts.
-  
-    public void Initialiser(Enemy nouvelleCible, float nouveauxDegats)
+    public void Initialiser(Enemy cible, float degats)
     {
-        _cible = nouvelleCible;
-        _degats = nouveauxDegats;
+        _cible = cible;
+        _degats = degats;
     }
 
     void Update()
     {
         if (_cible == null)
         {
-            DetruireProjectile();
+            Destroy(gameObject);
             return;
         }
 
-        // Déplacement vers la _cible
-        transform.position = Vector3.MoveTowards(transform.position, _cible.transform.position, _vitesse * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _cible.transform.position, 10f * Time.deltaTime);
 
-        // Vérifie si le projectile atteint la _cible
         if (Vector3.Distance(transform.position, _cible.transform.position) < 0.1f)
         {
-            ToucheCible();
-        }
-    }
-
-    /// Applique les dégâts à la _cible et détruit le projectile.
-  
-    void ToucheCible()
-    {
-        if (_cible != null)
-        {
-            _cible.SubirDegats(_degats);
-
-            // Applique un effet spécial s'il y en a un
-            if (!string.IsNullOrEmpty(_effetSpecial))
+            if (isAOE)
             {
-                AppliquerEffetSpecial();
+                Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+                foreach (var hit in colliders)
+                {
+                    Enemy e = hit.GetComponent<Enemy>();
+                    if (e != null)
+                    {
+                        e.SubirDegats(_degats);
+                        if (slowEffect)
+                        {
+                            e.AppliquerRalentissement(0.5f, 2f); 
+                        }
+                    }
+                }
             }
-        }
-
-        DetruireProjectile();
-    }
-
-    /// Applique un effet spécial à l'ennemi touché.
- 
-    void AppliquerEffetSpecial()
-    {
-        switch (_effetSpecial.ToLower())
-        {
-            case "ralentissement":
-                _cible.Ralentir(0.5f, 2f); // Exemple : réduit la _vitesse de moitié pendant 2 sec
-                break;
-            case "brûlure":
-                _cible.SubirDegatsSurTemps(5f, 3f); // Exemple : 5 dégâts par seconde pendant 3 sec
-                break;
-            case "explosion":
-                Exploser();
-                break;
-            default:
-                break;
-        }
-    }
-
-    /// Fait exploser le projectile et inflige des dégâts de zone.
-  
-    void Exploser()
-    {
-        Collider[] ennemisTouches = Physics.OverlapSphere(transform.position, 2f);
-        foreach (Collider ennemi in ennemisTouches)
-        {
-            Enemy ennemiTouche = ennemi.GetComponent<Enemy>();
-            if (ennemiTouche != null)
+            else
             {
-                ennemiTouche.SubirDegats(_degats / 2); // Dégâts réduits pour les ennemis en périphérie
+                _cible.SubirDegats(_degats);
             }
-        }
-    }
 
-    /// Détruit le projectile proprement.
-  
-    void DetruireProjectile()
-    {
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

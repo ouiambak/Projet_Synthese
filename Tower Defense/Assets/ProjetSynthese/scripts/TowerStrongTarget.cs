@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class TowerStrongestTarget : Tower
+public class TowerStrongTarget : Tower
 {
     protected override void TrouverCible()
     {

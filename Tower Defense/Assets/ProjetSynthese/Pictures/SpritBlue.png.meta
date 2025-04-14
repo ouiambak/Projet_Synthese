@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpritBlue_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 394.6667
+        width: 128.5
+        height: 197.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef563c766f634d74aaf3fd679e8038af
+      internalID: -791759653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritBlue_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 394.6667
+        width: 128.5
+        height: 197.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9a1d3eaae13722499aa5c076d2a8294
+      internalID: 1062277440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritBlue_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 197.66667
+        width: 128.5
+        height: 197.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ddd734c57689a43b36361ee09ea237
+      internalID: 1035514723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritBlue_3
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 197.66667
+        width: 128.5
+        height: 197.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5effb2bd963ad469acbaf51c286c67
+      internalID: -320422370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritBlue_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0.66667175
+        width: 128.5
+        height: 197.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ca21f0aeeb24b47814c54d83fe76ef
+      internalID: -1743406493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpritBlue_5
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 0.66667175
+        width: 128.5
+        height: 197.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45adbd7b8b032d74e9f3d388acc4d592
+      internalID: 310373600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +240,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpritBlue_0: -791759653
+      SpritBlue_1: 1062277440
+      SpritBlue_2: 1035514723
+      SpritBlue_3: -320422370
+      SpritBlue_4: -1743406493
+      SpritBlue_5: 310373600
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
