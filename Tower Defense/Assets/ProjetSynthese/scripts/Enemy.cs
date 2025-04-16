@@ -11,9 +11,13 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     public Transform target;
 
+    [SerializeField] private Animator _animator;
+
     public void Start()
     {
         Debug.Log("Start() lancé");
+
+        _navMeshAgent = GetComponent<NavMeshAgent>();
 
         if (target == null)
         {
@@ -36,6 +40,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (_animator != null && _navMeshAgent != null)
+        {
+            // Met à jour la vitesse dans l'Animator pour gérer l'animation
+            _animator.SetFloat("_speed", _navMeshAgent.velocity.magnitude / _navMeshAgent.speed);
+        }
+    }
 
     public virtual void SeDeplacer(Vector3 destination)
     {
@@ -54,70 +66,6 @@ public class Enemy : MonoBehaviour
         if (_navMeshAgent != null && target != null)
         {
             _navMeshAgent.SetDestination(targetPosition);
-        }
-    }
-
-    public void SubirDegats(float degatsRecus)
-    {
-        _vie -= degatsRecus;
-        if (_vie <= 0)
-        {
-            Mourir();
-        }
-    }
-
-    public void Mourir()
-    {
-        Destroy(gameObject);
-    }
-
-    /// <summary>
-    /// Ralentit l'ennemi temporairement.
-    /// </summary>
-    public void AppliquerRalentissement(float facteur, float duree)
-    {
-        if (_navMeshAgent != null)
-        {
-            _navMeshAgent.speed = _vitesseOriginale * facteur;
-        }
-        else
-        {
-            _vitesse = _vitesseOriginale * facteur;
-        }
-
-        CancelInvoke(nameof(AnnulerRalentissement)); // évite les empilements
-        Invoke(nameof(AnnulerRalentissement), duree);
-    }
-
-    private void AnnulerRalentissement()
-    {
-        if (_navMeshAgent != null)
-        {
-            _navMeshAgent.speed = _vitesseOriginale;
-        }
-        else
-        {
-            _vitesse = _vitesseOriginale;
-        }
-    }
-
-    /// <summary>
-    /// Applique des dégâts progressifs sur plusieurs secondes.
-    /// </summary>
-    public void SubirDegatsSurTemps(float degatsParSeconde, float duree)
-    {
-        StartCoroutine(DegatsProgressifs(degatsParSeconde, duree));
-    }
-
-    private System.Collections.IEnumerator DegatsProgressifs(float dps, float duree)
-    {
-        float tempsEcoule = 0f;
-
-        while (tempsEcoule < duree)
-        {
-            SubirDegats(dps * Time.deltaTime);
-            tempsEcoule += Time.deltaTime;
-            yield return null;
         }
     }
 }

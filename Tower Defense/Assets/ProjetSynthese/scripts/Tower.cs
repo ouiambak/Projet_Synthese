@@ -53,6 +53,6 @@ public class Tower : MonoBehaviour
 
         GameObject projectileGO = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
-        projectile.Initialiser(cible, _degats); 
+        //projectile.Initialiser(cible, _degats); 
     }
 }

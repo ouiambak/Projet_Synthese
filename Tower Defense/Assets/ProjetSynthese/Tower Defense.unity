@@ -343,10 +343,10 @@ MonoBehaviour:
   invalidMaterial: {fileID: 2100000, guid: 99cc5e5b39adb864db0d2aa8e84ec2c7, type: 2}
   placementLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   overlapCheckLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 384
 --- !u!1001 &112606227
 PrefabInstance:
   m_ObjectHideFlags: 0

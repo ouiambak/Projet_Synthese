@@ -19,7 +19,7 @@ public class TowerAOE : Tower
                 GameObject projectileGO = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
                 Projectile projectile = projectileGO.GetComponent<Projectile>();
                 float nouveauxDegats = 10f; 
-                projectile.Initialiser(ennemi, nouveauxDegats);
+                //projectile.Initialiser(ennemi, nouveauxDegats);
             }
         }
     }
