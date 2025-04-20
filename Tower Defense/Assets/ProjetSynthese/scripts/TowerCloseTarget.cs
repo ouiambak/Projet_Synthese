@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class TowerCloseTarget : Tower
 {
+    public void Start()
+    {
+        _cadenceDeTir = 3f;
+    }
     protected override void TrouverCible()
     {
         if (cible != null && Vector3.Distance(transform.position, cible.transform.position) <= _portee)
         {
-            return; 
+            return;
         }
 
         Enemy[] ennemis = FindObjectsOfType<Enemy>();

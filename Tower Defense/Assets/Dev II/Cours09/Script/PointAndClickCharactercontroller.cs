@@ -16,7 +16,7 @@ public class PointAndClickCharactercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /* if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray;
             RaycastHit hit;
@@ -28,7 +28,7 @@ public class PointAndClickCharactercontroller : MonoBehaviour
                 _agent.SetDestination(hit.point);
             }
 
-        }*/
+        }
         _animator.SetFloat("_speed", _agent.velocity.magnitude/_agent.speed);
     }
 }

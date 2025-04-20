@@ -5,6 +5,10 @@ using static UnityEngine.GraphicsBuffer;
 
 public class TowerStrongTarget : Tower
 {
+    public void Start()
+    {
+        _cadenceDeTir = 5f;
+    }
     protected override void TrouverCible()
     {
         Enemy[] ennemis = FindObjectsOfType<Enemy>();
