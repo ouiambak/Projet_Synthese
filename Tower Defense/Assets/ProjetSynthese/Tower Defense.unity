@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -189,6 +189,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 88f90bf1486280c4b894c3a467684bca, type: 3}
   m_PrefabInstance: {fileID: 61607110}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &86477733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86477735}
+  - component: {fileID: 86477734}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &86477734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86477733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d24567c9685e4ccbb9980e051d2f9ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCoins: 300
+--- !u!4 &86477735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86477733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87406689
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87666588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.972507, y: 6.466584, z: -16.09852}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -648,6 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 517938596371151468, guid: e474f3e5248e3ca44abecd8814315d9a, type: 3}
+  towerCost: 75
 --- !u!1 &254376257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,6 +1488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 803433940897798661, guid: 77eba47b6f224f74a895c1bf70e104da, type: 3}
+  towerCost: 75
 --- !u!1001 &461060907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3631,6 +3678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 8732359911511836385, guid: 5511eda7b739dd54596456a9edfbce24, type: 3}
+  towerCost: 75
 --- !u!1001 &1283404547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4591,6 +4639,7 @@ GameObject:
   - component: {fileID: 1647277803}
   - component: {fileID: 1647277805}
   - component: {fileID: 1647277804}
+  - component: {fileID: 1647277806}
   m_Layer: 5
   m_Name: TopLeftPanel
   m_TagString: Untagged
@@ -4658,6 +4707,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647277802}
   m_CullTransparentMesh: 1
+--- !u!114 &1647277806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647277802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79da83a493efe49818eba294a4522f90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 319341337}
 --- !u!1001 &1678839005
 PrefabInstance:
   m_ObjectHideFlags: 0
