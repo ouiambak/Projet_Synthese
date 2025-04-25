@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MatTourLuineuse
+  m_Name: MatTourLuineuse 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _EMISSION
@@ -76,6 +76,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.9245283, g: 0.030526895, b: 0.030526895, a: 1}
-    - _EmissionColor: {r: 1.9577981, g: 0, b: 0.15255569, a: 1}
+    - _Color: {r: 0.1293467, g: 0.06274474, b: 0.8867924, a: 1}
+    - _EmissionColor: {r: 0.07627785, g: 0.21747504, b: 1.214089, a: 1}
   m_BuildTextureStacks: []

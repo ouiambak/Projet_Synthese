@@ -27,6 +27,10 @@ public class Enemy : MonoBehaviour
             GameObject go = GameObject.FindWithTag("Target");
             if (go != null) target = go.transform;
         }
+        if (_animator != null) {
+            _animator.SetBool("__isdying", false); 
+        }
+            
 
         if (target != null)
         {
@@ -97,7 +101,7 @@ public class Enemy : MonoBehaviour
 
         if (_animator != null)
         {
-            _animator.SetTrigger("Die");
+            _animator.SetBool("_isdying", true); 
         }
 
         if (_navMeshAgent != null)
