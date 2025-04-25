@@ -96,7 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab846c4c529b7942802b0e39646d450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _portee: 5
-  _cadenceDeTir: 1
   _projectilePrefab: {fileID: 1404734935338200, guid: bd46ac74942c18b438e17b4269dbfb1f, type: 3}
-  _degats: 10
+  _range: 5

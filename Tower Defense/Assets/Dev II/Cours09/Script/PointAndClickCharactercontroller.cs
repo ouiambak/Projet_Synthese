@@ -29,6 +29,6 @@ public class PointAndClickCharactercontroller : MonoBehaviour
             }
 
         }
-        _animator.SetFloat("_speed", _agent.velocity.magnitude/_agent.speed);
+        _animator.SetFloat("_speed", _agent.velocity.magnitude/7f);
     }
 }

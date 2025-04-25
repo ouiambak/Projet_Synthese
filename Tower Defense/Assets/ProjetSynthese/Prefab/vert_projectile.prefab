@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4404853320486844}
   - component: {fileID: 198059168995235928}
   - component: {fileID: 199469222070960104}
+  - component: {fileID: 6030189017625523136}
   m_Layer: 0
   m_Name: vert_projectile
   m_TagString: Untagged
@@ -4853,6 +4854,21 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6030189017625523136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048394385358214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd4da1fd6bf73249beaad0d018b232b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAOE: 0
+  radius: 2
+  slowEffect: 1
 --- !u!1 &1352915096013946
 GameObject:
   m_ObjectHideFlags: 0

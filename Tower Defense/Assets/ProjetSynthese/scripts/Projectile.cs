@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public float radius = 2f;
     public bool slowEffect = false;
 
-   /* public void Initialiser(Enemy cible, float degats)
+    public void Initialiser(Enemy cible, float degats)
     {
         _cible = cible;
         _degats = degats;
@@ -49,5 +49,5 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject);
         }
-    }*/
+    }
 }

@@ -1,58 +1,66 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Tower : MonoBehaviour
 {
-    public float _portee = 5f; 
-    public float _cadenceDeTir = 1f; 
-    public GameObject _projectilePrefab; 
-    public float _degats = 10f; 
-    private float _tempsAvantProchainTir = 0f;
+  
+    protected float _cadenceDeTir = 1f;
+    protected Enemy _cible;
+    [SerializeField] protected GameObject _projectilePrefab;
+    [SerializeField] protected float _range = 5f;
 
-    protected Enemy cible;
+    private float _compteurDeTir = 0f;
 
     void Update()
     {
         TrouverCible();
-        if (cible != null && _tempsAvantProchainTir <= 0f)
-        {
-            Tirer();
-            _tempsAvantProchainTir = 1f / _cadenceDeTir;
-        }
-        _tempsAvantProchainTir -= Time.deltaTime;
 
-     
-        if (cible != null)
+        if (_cible != null)
         {
-            Vector3 direction = cible.transform.position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5f);
+            if (_compteurDeTir <= 0f)
+            {
+                Tirer();
+                _compteurDeTir = 1f / _cadenceDeTir;
+            }
         }
+
+        _compteurDeTir -= Time.deltaTime;
     }
 
     protected virtual void TrouverCible()
     {
         Enemy[] ennemis = FindObjectsOfType<Enemy>();
-        float distanceMin = Mathf.Infinity;
-        Enemy ennemiLePlusProche = null;
+        float plusProche = Mathf.Infinity;
+        Enemy meilleurCandidat = null;
 
         foreach (Enemy ennemi in ennemis)
         {
             float distance = Vector3.Distance(transform.position, ennemi.transform.position);
-            if (distance < distanceMin && distance <= _portee)
+            if (distance < plusProche && distance <= _range)
             {
-                distanceMin = distance;
-                ennemiLePlusProche = ennemi;
+                plusProche = distance;
+                meilleurCandidat = ennemi;
             }
         }
-        cible = ennemiLePlusProche;
+
+        _cible = meilleurCandidat;
     }
 
     protected virtual void Tirer()
     {
-        if (cible == null) return;
+        if (_cible == null) return;
 
-        GameObject projectileGO = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-        Projectile projectile = projectileGO.GetComponent<Projectile>();
-        //projectile.Initialiser(cible, _degats); 
+        GameObject projectileObj = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+        Projectile projectile = projectileObj.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            projectile.Initialiser(_cible, 10f); 
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _range);
     }
 }

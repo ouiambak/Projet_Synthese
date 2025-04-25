@@ -10,7 +10,7 @@ public class TowerCloseTarget : Tower
     }
     protected override void TrouverCible()
     {
-        if (cible != null && Vector3.Distance(transform.position, cible.transform.position) <= _portee)
+        if (_cible != null && Vector3.Distance(transform.position, _cible.transform.position) <= _range)
         {
             return;
         }
@@ -22,12 +22,12 @@ public class TowerCloseTarget : Tower
         foreach (Enemy ennemi in ennemis)
         {
             float distance = Vector3.Distance(transform.position, ennemi.transform.position);
-            if (distance < distanceMin && distance <= _portee)
+            if (distance < distanceMin && distance <= _range)
             {
                 distanceMin = distance;
                 ennemiLePlusProche = ennemi;
             }
         }
-        cible = ennemiLePlusProche;
+        _cible = ennemiLePlusProche;
     }
 }
