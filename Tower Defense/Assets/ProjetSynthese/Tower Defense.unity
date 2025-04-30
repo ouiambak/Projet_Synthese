@@ -272,6 +272,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playerCoins: 300
+  vieMax: 5
+  vieActuelle: 5
+  sliderVie: {fileID: 984857275}
 --- !u!4 &86477735
 Transform:
   m_ObjectHideFlags: 0
@@ -893,6 +896,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 88f90bf1486280c4b894c3a467684bca, type: 3}
   m_PrefabInstance: {fileID: 150897560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &174264852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 49ca538ce209a82448b832a3d0c09ba3, type: 3}
+  m_PrefabInstance: {fileID: 1183423148}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &190951581 stripped
 GameObject:
@@ -2173,6 +2181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Pillar_Square_Round_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dfe0adb60dd269245b5d35558b9bc07e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfe0adb60dd269245b5d35558b9bc07e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2310,7 +2322,6 @@ MonoBehaviour:
   _enemyTankPrefab: {fileID: 7164094344649915595, guid: 178d03efbc6829c40890a615d4dfd88f, type: 3}
   _spawnPoint: {fileID: 381781111}
   _spawnInterval: 3
-  _pauseBetweenWaves: 5
   _targetFinal: {fileID: 1183423149}
 --- !u!4 &381781111
 Transform:
@@ -3435,7 +3446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &647489331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5919,6 +5930,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 49ca538ce209a82448b832a3d0c09ba3, type: 3}
   m_PrefabInstance: {fileID: 1183423148}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1183423152
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174264852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6774998, y: 2, z: 2.6774993}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1196235293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6014,7 +6038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1222874403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6050,7 +6074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -8740,7 +8764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1750617325
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8775,7 +8799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipText: {fileID: 1674762732}
-  backgroundRectTransform: {fileID: 1750617325}
+  backgroundRect: {fileID: 1750617325}
 --- !u!1 &1766518168
 GameObject:
   m_ObjectHideFlags: 0
@@ -9939,7 +9963,6 @@ MonoBehaviour:
   _enemyTankPrefab: {fileID: 7164094344649915595, guid: 178d03efbc6829c40890a615d4dfd88f, type: 3}
   _spawnPoint: {fileID: 2093891319}
   _spawnInterval: 3
-  _pauseBetweenWaves: 5
   _targetFinal: {fileID: 1183423149}
 --- !u!1001 &2097442742
 PrefabInstance:

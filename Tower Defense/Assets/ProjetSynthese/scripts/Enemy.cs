@@ -93,7 +93,14 @@ public class Enemy : MonoBehaviour
             StartCoroutine(MourirAvecAnimation());
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Target"))
+        {
+            GameManager.Instance.PerdreVie();
+            Destroy(gameObject); 
+        }
+    }
     protected virtual IEnumerator MourirAvecAnimation()
     {
         if (_estMort) yield break;

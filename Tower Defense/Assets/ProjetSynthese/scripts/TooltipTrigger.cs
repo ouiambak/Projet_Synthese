@@ -8,10 +8,12 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log(" touche moi !!");
         Vector2 mousePosition = Input.mousePosition;
         TooltipUI tooltip = TooltipUI.Instance;
         if (tooltip != null)
         {
+            Debug.Log(" Tooltips manager is present !!");
             tooltip.Show(tooltipMessage, mousePosition);
         }
     }

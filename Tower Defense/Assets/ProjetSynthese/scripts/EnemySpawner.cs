@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -6,51 +6,31 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject _enemyFastPrefab;
     [SerializeField] private GameObject _enemyTankPrefab;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private float _spawnInterval = 1f;
-    [SerializeField] private float _pauseBetweenWaves = 5f;
-    [SerializeField] private Transform _targetFinal;
+    [SerializeField] private float _spawnInterval = 3f;
 
-    private int _waveNumber = 0;
-    private int _enemiesPerWave = 3;
+    [SerializeField] private Transform _targetFinal;
 
     void Start()
     {
-        StartCoroutine(LaunchWaves());
+        StartCoroutine(SpawnEnemies());
     }
 
-    IEnumerator LaunchWaves()
+    IEnumerator SpawnEnemies()
     {
         while (true)
         {
-            _waveNumber++;
-            int totalEnemies = _enemiesPerWave + _waveNumber;
+            yield return new WaitForSeconds(_spawnInterval);
 
-            Debug.Log($"Vague {_waveNumber} : {totalEnemies} ennemis");
+            int enemyType = Random.Range(0, 2);
+            GameObject prefab = (enemyType == 0) ? _enemyFastPrefab : _enemyTankPrefab;
 
-            for (int i = 0; i < totalEnemies; i++)
-            {
-                SpawnEnemy();
-                yield return new WaitForSeconds(_spawnInterval);
-            }
 
-            yield return new WaitForSeconds(_pauseBetweenWaves);
-        }
-    }
+            GameObject newEnemy = Instantiate(prefab, _spawnPoint.position, _spawnPoint.rotation);
 
-    void SpawnEnemy()
-    {
-        int enemyType = Random.Range(0, 2);
-        string poolTag = (enemyType == 0) ? "EnemyFast" : "EnemyTank";
-
-        GameObject enemy = ObjectPoolManager.Instance.GetFromPool(poolTag, _spawnPoint.position, Quaternion.identity);
-        if (enemy != null)
-        {
-            enemy.SetActive(true);
-            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            Enemy enemyScript = newEnemy.GetComponent<Enemy>();
             if (enemyScript != null)
             {
                 enemyScript.target = _targetFinal;
-                enemyScript._vie += 10f * (_waveNumber - 1);
             }
         }
     }
