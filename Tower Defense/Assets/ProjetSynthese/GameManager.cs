@@ -13,12 +13,14 @@ public class GameManager : MonoBehaviour
     [Header("Vie du joueur")]
     public int vieMax = 5;
     public int vieActuelle = 5;
-
     [SerializeField] private Slider sliderVie;
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
     void Start()
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
         vieActuelle--;
         MettreAJourSlider();
 
-        Debug.Log($" Vie restante : {vieActuelle}/{vieMax}");
+        Debug.Log($"Vie restante : {vieActuelle}/{vieMax}");
 
         if (vieActuelle <= 0)
         {
@@ -62,14 +64,13 @@ public class GameManager : MonoBehaviour
     {
         if (sliderVie != null)
         {
-            sliderVie.maxValue = vieMax;
             sliderVie.value = vieActuelle;
         }
     }
 
     private void GameOver()
     {
-        Debug.Log(" GAME OVER !");
-        SceneManager.LoadScene("GameOver");
+        Debug.Log("GAME OVER !");
+        SceneManager.LoadScene("GameOver"); // Assure-toi que la scène est bien ajoutée dans Build Settings
     }
 }

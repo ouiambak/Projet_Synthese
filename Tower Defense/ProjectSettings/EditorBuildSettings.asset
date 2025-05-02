@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ProjetSynthese/GameOver.unity
+    guid: 8687184cfd4be1847b1b20bac9df4ae2
+  - enabled: 1
+    path: Assets/ProjetSynthese/FirstScene.unity
+    guid: 671cea599e63c834f8ea0084aab783ab
+  - enabled: 1
+    path: Assets/ProjetSynthese/Tower Defense.unity
+    guid: 403773fa1f43c944ca0b72d7a6902cf5
   m_configObjects: {}

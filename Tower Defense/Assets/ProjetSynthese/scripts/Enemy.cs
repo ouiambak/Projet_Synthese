@@ -18,6 +18,10 @@ public class Enemy : MonoBehaviour
     private Coroutine _ralentissementCoroutine;
     protected bool _estMort = false;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip deathSound;
+    private AudioSource audioSource;
+
     public virtual void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -27,10 +31,17 @@ public class Enemy : MonoBehaviour
             GameObject go = GameObject.FindWithTag("Target");
             if (go != null) target = go.transform;
         }
-        if (_animator != null) {
-            _animator.SetBool("__isdying", false); 
+
+        if (_animator != null)
+        {
+            _animator.SetBool("__isdying", false);
         }
-            
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
         if (target != null)
         {
@@ -93,14 +104,16 @@ public class Enemy : MonoBehaviour
             StartCoroutine(MourirAvecAnimation());
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Target"))
         {
             GameManager.Instance.PerdreVie();
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
+
     protected virtual IEnumerator MourirAvecAnimation()
     {
         if (_estMort) yield break;
@@ -108,7 +121,7 @@ public class Enemy : MonoBehaviour
 
         if (_animator != null)
         {
-            _animator.SetBool("_isdying", true); 
+            _animator.SetBool("_isdying", true);
         }
 
         if (_navMeshAgent != null)
@@ -118,7 +131,14 @@ public class Enemy : MonoBehaviour
 
         GameManager.Instance.GagnerRessources(_recompense);
 
+      
+        if (deathSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
+
         yield return new WaitForSeconds(2f);
+
         Destroy(gameObject);
     }
 

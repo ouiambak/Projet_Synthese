@@ -3,13 +3,25 @@ using System.Collections.Generic;
 
 public class Tower : MonoBehaviour
 {
-  
     protected float _cadenceDeTir = 1f;
     protected Enemy _cible;
     [SerializeField] protected GameObject _projectilePrefab;
     [SerializeField] protected float _range = 5f;
 
     private float _compteurDeTir = 0f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip shootSound;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     void Update()
     {
@@ -54,7 +66,13 @@ public class Tower : MonoBehaviour
         Projectile projectile = projectileObj.GetComponent<Projectile>();
         if (projectile != null)
         {
-            projectile.Initialiser(_cible, 10f); 
+            projectile.Initialiser(_cible, 10f);
+        }
+
+        // Joue le son de tir
+        if (shootSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(shootSound);
         }
     }
 

@@ -9,6 +9,10 @@ public class BuildManager : MonoBehaviour
     public LayerMask placementLayer;
     public LayerMask overlapCheckLayer;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip placementSound;
+    private AudioSource audioSource;
+
     private GameObject _towerToBuild;
     private GameObject _previewInstance;
     private bool _isPlacing = false;
@@ -16,6 +20,15 @@ public class BuildManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     public void StartPlacingTower(GameObject prefab)
@@ -44,6 +57,13 @@ public class BuildManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && canPlace)
             {
                 Instantiate(_towerToBuild, placementPosition, Quaternion.identity);
+
+                
+                if (placementSound != null)
+                {
+                    audioSource.PlayOneShot(placementSound);
+                }
+
                 CancelPlacement();
             }
 
@@ -52,7 +72,6 @@ public class BuildManager : MonoBehaviour
                 CancelPlacement();
             }
         }
-
     }
 
     private void SetPreviewMode(GameObject obj)
@@ -62,7 +81,6 @@ public class BuildManager : MonoBehaviour
             r.material = validMaterial;
         }
 
-        // Optionnel : désactiver scripts, collisions, etc.
         obj.tag = "Preview";
     }
 
