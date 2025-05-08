@@ -275,6 +275,8 @@ MonoBehaviour:
   vieMax: 5
   vieActuelle: 5
   sliderVie: {fileID: 984857275}
+  gameOverPanel: {fileID: 0}
+  gameOverText: {fileID: 0}
 --- !u!4 &86477735
 Transform:
   m_ObjectHideFlags: 0
@@ -4136,7 +4138,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.568
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

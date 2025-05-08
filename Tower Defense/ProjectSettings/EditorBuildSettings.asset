@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ProjetSynthese/Tower Defense.unity
     guid: 403773fa1f43c944ca0b72d7a6902cf5
+  - enabled: 1
+    path: Assets/ProjetSynthese/WInner.unity
+    guid: 037df07bb27bcf242a56724e08fd11a2
   m_configObjects: {}

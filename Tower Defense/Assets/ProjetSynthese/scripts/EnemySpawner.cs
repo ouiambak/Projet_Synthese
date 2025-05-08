@@ -17,6 +17,9 @@ public class EnemySpawner : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI waveText;
 
+    private int _enemiesAlive = 0;
+    private bool _toutesLesVaguesTerminees = false;
+
     void Start()
     {
         StartCoroutine(SpawnWaves());
@@ -42,7 +45,9 @@ public class EnemySpawner : MonoBehaviour
         }
 
         UpdateWaveText(-1);
+        _toutesLesVaguesTerminees = true;
         Debug.Log("Toutes les vagues sont terminées !");
+        CheckVictoryCondition();
     }
 
     void SpawnRandomEnemy()
@@ -56,6 +61,24 @@ public class EnemySpawner : MonoBehaviour
         if (enemyScript != null)
         {
             enemyScript.target = _targetFinal;
+            enemyScript.onDeath += OnEnemyKilled;
+        }
+
+        _enemiesAlive++;
+    }
+
+    void OnEnemyKilled()
+    {
+        _enemiesAlive--;
+
+        CheckVictoryCondition();
+    }
+
+    void CheckVictoryCondition()
+    {
+        if (_toutesLesVaguesTerminees && _enemiesAlive <= 0 && GameManager.Instance.vieActuelle > 0)
+        {
+            GameManager.Instance.Victory();
         }
     }
 

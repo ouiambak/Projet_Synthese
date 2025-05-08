@@ -22,6 +22,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     private AudioSource audioSource;
 
+    //  Événement appelé à la mort
+    public System.Action onDeath;
+
     public virtual void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -131,7 +134,9 @@ public class Enemy : MonoBehaviour
 
         GameManager.Instance.GagnerRessources(_recompense);
 
-      
+        // Appel de l'événement de mort
+        onDeath?.Invoke();
+
         if (deathSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(deathSound);

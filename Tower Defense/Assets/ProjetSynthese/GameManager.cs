@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public int vieActuelle = 5;
     [SerializeField] private Slider sliderVie;
 
+    [Header("UI Victoire/Défaite")]
+    public GameObject gameOverPanel;
+    public Text gameOverText;
+
+
     void Awake()
     {
         if (Instance == null)
@@ -71,6 +76,19 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("GAME OVER !");
-        SceneManager.LoadScene("GameOver"); // Assure-toi que la scène est bien ajoutée dans Build Settings
+        SceneManager.LoadScene("GameOver");
     }
+    public void Victory()
+    {
+        Debug.Log("VICTOIRE !");
+        SceneManager.LoadScene("WInner");
+    }
+
+    private void AfficherMessageFin(string message)
+    {
+        Time.timeScale = 0f; 
+        gameOverPanel.SetActive(true);
+        gameOverText.text = message;
+    }
+   
 }
